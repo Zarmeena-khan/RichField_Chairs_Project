@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .cart-container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+
+    .item-details {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .item-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item-info h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .item-info p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quantity-control button {
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #7d5332;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .quantity-control span {
+      font-size: 16px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .item-total {
+      font-weight: bold;
+      font-size: 16px;
+      color: #444;
+      margin-right: 20px;
+    }
+
+    .delete-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #c00;
+      cursor: pointer;
+    }
+
+    .update-btn {
+      margin-top: 40px;
+      padding: 12px 25px;
+      background-color: #7d5332;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      float: right;
+    }
+
+    @media (max-width: 768px) {
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .item-total {
+        margin-top: 10px;
+      }
+      .update-btn {
+        width: 100%;
+        float: none;
+      }
+    }
+     body {
+    background-color: #fff scroll-behavior smooth;
+        font-family: Cochin;}
+  </style>
+</head>
+<body>
+
+  <div class="cart-container">
+    <p style="text-align: center; color: #7d5332; font-size: large; margin-top: 10px;margin-bottom: 2px;">___Your
+      Finds___</p>
+    <h1 style="text-align: center; margin-top: 5px;">YOUR CART</h1>
+    <div id="cart-items"></div>
+    <button class="update-btn" onclick="updateCart()">Update Cart</button>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function renderCart() {
+      const container = document.getElementById("cart-items");
+      container.innerHTML = "";
+      cart.forEach((item, index) => {
+        container.innerHTML += `
+          <div class="cart-item">
+            <div class="item-details">
+              <img src="https://via.placeholder.com/80" alt="${item.name}" />
+              <div class="item-info">
+                <h4>${item.name}</h4>
+                <p>Color: Coffee</p>
+              </div>
+            </div>
+            <div class="quantity-control">
+              <button onclick="changeQuantity(${index}, -1)">−</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity(${index}, 1)">+</button>
+            </div>
+            <div class="item-total">₨ ${item.price * item.quantity}</div>
+            <button class="delete-btn" onclick="removeItem(${index})">🗑️</button>
+          </div>
+        `;
+      });
+    }
+
+    function changeQuantity(index, delta) {
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function updateCart() {
+      alert("Cart updated successfully!");
+    }
+
+    renderCart();
+    function renderCart() {
+  const container = document.getElementById("cart-items");
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="empty-cart">
+        <p>🛒 Your cart is empty. Start adding some comfy chairs!</p>
+      </div>
+    `;
+    document.querySelector(".update-btn").style.display = "none";
+    return;
+  }
+
+  document.querySelector(".update-btn").style.display = "inline-block";
+
+  cart.forEach((item, index) => {
+    container.innerHTML += `
+      <div class="cart-item">
+        <div class="item-details">
+          <div class="item-info">
+            <h4>${item.name}</h4>
+            <p>Color: Coffee</p>
+          </div>
+        </div>
+        <div class="quantity-control">
+          <button onclick="changeQuantity(${index}, -1)">−</button>
+          <span>${item.quantity}</span>
+          <button onclick="changeQuantity(${index}, 1)">+</button>
+        </div>
+        <div class="item-total">₨ ${item.price * item.quantity}</div>
+        <button class="delete-btn" onclick="removeItem(${index})">🗑️</button>
+      </div>
+    `;
+  });
+}
+
+function addToCart(name, price, image) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let item = cart.find(p => p.name === name);
+
+  if(item) {
+    item.quantity++;
+  } else {
+    cart.push({name, price, image, quantity: 1});
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+
+function renderCart() {
+  const container = document.getElementById("cart-items");
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.innerHTML = `<div class="empty-cart"><p>🛒 Your cart is empty.</p></div>`;
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    container.innerHTML += `
+      <div class="cart-item">
+        <div class="item-details">
+          <div class="item-info">
+            <h4>${item.name}</h4>
+            <p>Price: ₨ ${item.price}</p>
+          </div>
+        </div>
+        <div class="quantity-control">
+          <button onclick="changeQuantity(${index}, -1)">−</button>
+          <span>${item.quantity}</span>
+          <button onclick="changeQuantity(${index}, 1)">+</button>
+        </div>
+        <div class="item-total">₨ ${item.price * item.quantity}</div>
+        <button class="delete-btn" onclick="removeItem(${index})">🗑️</button>
+      </div>
+    `;
+  });
+}
+  </script>
+
+</body>
+</html>

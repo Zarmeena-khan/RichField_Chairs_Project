@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
+</head>
+<style>
+      .navbar {
+    background: #fff !important;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-brand img {
+    height: 60px;
+    /* logo size increased */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-brand img:hover {
+    transform: scale(1.05);
+  }
+
+  .navbar-nav .nav-link {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #222 !important;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #c8a46a !important;
+  }
+
+  .icon-links a {
+    margin-left: 0.7rem;
+    font-size: 1.2rem;
+    padding: 6px 8px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    color: #222;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .icon-links a:hover {
+    background: #c8a46a;
+    color: #fff;
+    border-color: #c8a46a;
+  }
+  .navbar-nav .nav-link.active {
+  color: #c8a46a !important; /* brown color */
+}
+
+  * {
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #fff scroll-behavior smooth;
+    font-family: Cochin;
+  }
+    /* Reviews Section Styles */
+    body{
+       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+       font-family: Cochin;
+    }
+    .reviews-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 30px 0;
+        margin-top: 0px;
+    }
+
+    .review-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #e9ecef;
+        height: 100%;
+    }
+
+    .review-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .stars {
+        color: #ffc107;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .customer-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #c8a46a;
+        margin-bottom: 15px;
+    }
+
+    .customer-name {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .customer-position {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .review-text {
+        color: #555;
+        line-height: 1.6;
+        font-style: italic;
+    }
+
+    .section-title {
+        color: #7d5332;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .section-heading {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 50px;
+        color: #333;
+    }
+
+    .review-quote {
+        font-size: 3rem;
+        color: #c8a46a;
+        opacity: 0.3;
+        line-height: 1;
+    }
+     /* Footer Styles */
+  .footer-section {
+      background: linear-gradient(135deg, #2c1e0f 0%, #3d2a16 100%);
+      color: white;
+      padding: 60px 0 0;
+  }
+  .footer-logo {
+      max-width: 180px;
+      margin-bottom: 20px;
+      filter: brightness(0) invert(1);
+  }
+  .footer-heading {
+      color: #c8a46a;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      font-weight: 600;
+      position: relative;
+  }
+  .footer-heading:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #c8a46a;
+  }
+  .footer-links {
+      list-style: none;
+      padding: 0;
+  }
+  .footer-links li {
+      margin-bottom: 12px;
+  }
+  .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+  }
+  .footer-links a:hover {
+      color: #c8a46a;
+      transform: translateX(5px);
+  }
+  .footer-links a i {
+      margin-right: 8px;
+      color: #c8a46a;
+  }
+  .contact-info-footer {
+      color: #ddd;
+  }
+  .contact-info-footer p {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+  }
+  .contact-info-footer i {
+      color: #c8a46a;
+      margin-right: 12px;
+      margin-top: 4px;
+      flex-shrink: 0;
+  }
+  .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+  }
+  .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(200, 164, 106, 0.1);
+      color: #c8a46a;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(200, 164, 106, 0.3);
+  }
+  .social-links a:hover {
+      background: #c8a46a;
+      color: #2c1e0f;
+      transform: translateY(-3px);
+  }
+  .newsletter-form {
+      display: flex;
+      margin-top: 20px;
+  }
+  .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: 1px solid rgba(200, 164, 106, 0.3);
+  }
+  .newsletter-form input::placeholder {
+      color: #aaa;
+  }
+  .newsletter-form button {
+      background: #c8a46a;
+      color: #2c1e0f;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 5px 5px 0;
+      font-weight: 600;
+      transition: all 0.3s ease;
+  }
+  .newsletter-form button:hover {
+      background: #b8945a;
+  }
+  .footer-bottom {
+      background: #1f150b;
+      padding: 25px 0;
+      margin-top: 50px;
+      border-top: 1px solid rgba(200, 164, 106, 0.2);
+  }
+  .footer-bottom p {
+      margin: 0;
+      color: #aaa;
+      text-align: center;
+  }
+  .payment-methods {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+  }
+  .payment-methods i {
+      font-size: 1.5rem;
+      color: #c8a46a;
+  }
+  .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #7d5332;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  .back-to-top:hover {
+      background: #634029;
+      transform: translateY(-3px);
+      color: white;
+  }
+
+  
+  /* Search Bar Styles */
+  .search-form {
+      display: flex;
+      align-items: center;
+  }
+  .search-input {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      width: 200px;
+      transition: all 0.3s ease;
+  }
+  .search-input:focus {
+      outline: none;
+      border-color: #c8a46a;
+      box-shadow: 0 0 0 2px rgba(200, 164, 106, 0.2);
+      width: 250px;
+  }
+  .search-button {
+      background: #7d5332;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      margin-left: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+  .search-button:hover {
+      background: #634029;
+  }
+  
+  /* Search Results Styles */
+  .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+  }
+  .search-result-item {
+      padding: 10px 15px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      transition: background-color 0.2s;
+  }
+  .search-result-item:hover {
+      background-color: #f8f9fa;
+  }
+  .search-result-item:last-child {
+      border-bottom: none;
+  }
+  .no-results {
+      padding: 15px;
+      text-align: center;
+      color: #6c757d;
+  }
+  
+  /* Product Highlight */
+  .product-highlight {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 4px;
+      padding: 5px;
+      transition: all 0.3s ease;
+  }
+</style>
+
+<body>
+       <!-- ✅ Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="RC logo - Copy.png" alt="RichField Chairs Logo" style="margin-left: 25px;">
+      </a>
+
+      <!-- Toggle Button for Mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav mb-2 mb-lg-0" style="font-family: sans-serif;">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="/Brand.html">Brand</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="Product.html">Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="FAQs.html">Faq's</a></li>
+          <li class="nav-item"  style="color: #c8a46a;"><a class="nav-link" href="review.html">Reviews</a></li>
+        </ul>
+      </div>
+
+     <!-- Right Side Icons -->
+<div class="icon-links d-none d-lg-flex align-items-center">
+ <!-- Right Side Icons with Search Bar -->
+      <div class="icon-links d-none d-lg-flex">
+        <!-- Search Form -->
+        <div class="search-form position-relative">
+          <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+          <button class="search-button" id="searchButton">
+            <i class="bi bi-search"></i>
+          </button>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+ <a href="#loginModal"><i class="bi bi-person"  data-bs-toggle="modal" data-bs-target="#loginModal"></i></a>
+  <a href="cart.html">🛒</a>
+</div>
+
+    </div>
+  </nav>
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <p class="section-title">_What Our Customers Say_</p>
+            <h2 class="section-heading">CUSTOMER REVIEWS</h2>
+
+            <div class="row">
+                <!-- Review 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "These chairs have completely transformed my home office! The comfort and quality are
+                            exceptional. I can work for hours without any back pain."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson"
+                                class="customer-img">
+                            <h5 class="customer-name">Sarah Johnson</h5>
+                            <p class="customer-position">Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "Outstanding quality and customer service! The executive chair I purchased is not only
+                            comfortable but also looks premium in my office setup."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen"
+                                class="customer-img">
+                            <h5 class="customer-name">Michael Chen</h5>
+                            <p class="customer-position">Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★☆
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "Great value for money! The mesh chair provides perfect back support and the breathable
+                            material keeps me cool during long working hours."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Sharma"
+                                class="customer-img">
+                            <h5 class="customer-name">Priya Sharma</h5>
+                            <p class="customer-position">Content Writer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "I bought 10 chairs for my startup office. My team loves them! The ergonomic design has
+                            significantly reduced our comfort-related complaints."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Raj Patel"
+                                class="customer-img">
+                            <h5 class="customer-name">Raj Patel</h5>
+                            <p class="customer-position">Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "The drafting chair is perfect for my architecture work. Adjustable height and comfortable
+                            seating make long hours at the drafting table bearable."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Emily Davis"
+                                class="customer-img">
+                            <h5 class="customer-name">Emily Davis</h5>
+                            <p class="customer-position">Architect</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★☆
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "Good quality chairs at affordable prices. The assembly was straightforward and the chairs
+                            have held up well over 6 months of daily use."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="David Wilson"
+                                class="customer-img">
+                            <h5 class="customer-name">David Wilson</h5>
+                            <p class="customer-position">Teacher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <!-- Review 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "These chairs have completely transformed my home office! The comfort and quality are
+                            exceptional. I can work for hours without any back pain."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson"
+                                class="customer-img">
+                            <h5 class="customer-name">Sarah Johnson</h5>
+                            <p class="customer-position">Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "Outstanding quality and customer service! The executive chair I purchased is not only
+                            comfortable but also looks premium in my office setup."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen"
+                                class="customer-img">
+                            <h5 class="customer-name">Michael Chen</h5>
+                            <p class="customer-position">Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★☆
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "Great value for money! The mesh chair provides perfect back support and the breathable
+                            material keeps me cool during long working hours."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Sharma"
+                                class="customer-img">
+                            <h5 class="customer-name">Priya Sharma</h5>
+                            <p class="customer-position">Content Writer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "I bought 10 chairs for my startup office. My team loves them! The ergonomic design has
+                            significantly reduced our comfort-related complaints."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Raj Patel"
+                                class="customer-img">
+                            <h5 class="customer-name">Raj Patel</h5>
+                            <p class="customer-position">Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "The drafting chair is perfect for my architecture work. Adjustable height and comfortable
+                            seating make long hours at the drafting table bearable."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Emily Davis"
+                                class="customer-img">
+                            <h5 class="customer-name">Emily Davis</h5>
+                            <p class="customer-position">Architect</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <div class="stars">
+                            ★★★★☆
+                        </div>
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            "Good quality chairs at affordable prices. The assembly was straightforward and the chairs
+                            have held up well over 6 months of daily use."
+                        </p>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="David Wilson"
+                                class="customer-img">
+                            <h5 class="customer-name">David Wilson</h5>
+                            <p class="customer-position">Teacher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+       <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row">
+        <!-- Company Info -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <img src="/RC_logo_copy_2-removebg-preview.png" alt="RichField Chairs" class="footer-logo">
+          <p class="contact-info-footer">
+            Crafting comfort and style since 2010. RichField Chairs brings you premium seating solutions for home, office, and commercial spaces.
+          </p>
+          <div class="contact-info-footer">
+            <p>
+              <i class="bi bi-geo-alt"></i>
+              <span>ST-21, Block A, North Nazimabad, Karachi, Pakistan</span>
+            </p>
+            <p>
+              <i class="bi bi-telephone"></i>
+              <span>+92 21 36620000</span>
+            </p>
+            <p>
+              <i class="bi bi-envelope"></i>
+              <span>info@richfieldchairs.com</span>
+            </p>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.twitter.com"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.linkedin.com"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.youtube.com"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+            <li><a href="About.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+            <li><a href="Product.html"><i class="bi bi-chevron-right"></i> Products</a></li>
+            <li><a href="Contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+            <li><a href="FAQs.html"><i class="bi bi-chevron-right"></i> FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Products -->
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h4 class="footer-heading">Products</h4>
+          <ul class="footer-links">
+           <li><a href="C-office.html"><i class="bi bi-chevron-right"></i> Office Chairs</a></li>
+            <li><a href="C-luxary.html"><i class="bi bi-chevron-right"></i> Luxary Chairs</a></li>
+            <li><a href="C-gaming.html"><i class="bi bi-chevron-right"></i> Gaming Chairs</a></li>
+            <li><a href="C-dining.html"><i class="bi bi-chevron-right"></i> Dining Chairs</a></li>
+            <li><a href="C-lounge.html"><i class="bi bi-chevron-right"></i> Lounge Chairs</a></li>
+            <li><a href="C-outdoor.html"><i class="bi bi-chevron-right"></i> Outdoor Chairs</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p class="contact-info-footer">
+            Subscribe to our newsletter to get updates on new products and exclusive offers.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="bi bi-send"></i></button>
+          </form>
+          <div class="payment-methods mt-4">
+            <i class="bi bi-credit-card" title="Credit Cards"></i>
+            <i class="bi bi-paypal" title="PayPal"></i>
+            <i class="bi bi-currency-dollar" title="Cash on Delivery"></i>
+            <i class="bi bi-bank" title="Bank Transfer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p>&copy; 2024 RichField Chairs. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+          <p>Crafted for Excellence in Comfort</p> </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Secure Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" class="needs-validation" novalidate>
+                    
+                    <div class="mb-3">
+                        <label for="validationCustomEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="validationCustomEmail" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="validationCustomPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="validationCustomPassword" required minlength="6">
+                        <div class="invalid-feedback">
+                            Please enter your password (minimum 6 characters).
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success w-100">Log In</button>
+
+                    <hr>
+                    <p class="text-center"><small>
+                        Don't have an account? <a href="#">Sign Up</a>
+                    </small></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let currentPath = window.location.pathname;
+    document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+      if(link.getAttribute("href") === currentPath){
+        link.classList.add("active");
+      }
+    });
+  });
+   document.addEventListener("DOMContentLoaded", function() {
+    const searchToggle = document.getElementById("searchToggle");
+    const searchBox = document.getElementById("searchBox");
+
+    searchToggle.addEventListener("click", function() {
+      searchBox.classList.toggle("d-none");
+      if (!searchBox.classList.contains("d-none")) {
+        searchBox.focus();
+      }
+    });
+  });
+   // Back to top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.style.display = 'flex';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Search Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput');
+      const searchButton = document.getElementById('searchButton');
+      const searchResults = document.getElementById('searchResults');
+      const productCards = document.querySelectorAll('.product-card');
+      
+      // Product data for search
+      const products = Array.from(productCards).map(card => ({
+        name: card.getAttribute('data-name'),
+        description: card.getAttribute('data-description'),
+        element: card
+      }));
+      
+      // Function to perform search
+      function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+        
+        if (searchTerm === '') {
+          searchResults.style.display = 'none';
+          return;
+        }
+        
+        // Filter products based on search term
+        const filteredProducts = products.filter(product => 
+          product.name.toLowerCase().includes(searchTerm) || 
+          product.description.toLowerCase().includes(searchTerm)
+        );
+        
+        // Display results
+        if (filteredProducts.length > 0) {
+          filteredProducts.forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            resultItem.innerHTML = `
+              <strong>${product.name}</strong>
+              <p class="mb-0" style="font-size: 0.8rem;">${product.description}</p>
+            `;
+            
+            resultItem.addEventListener('click', function() {
+              // Scroll to the product
+              product.element.scrollIntoView({ behavior: 'smooth' });
+              
+              // Highlight the product
+              product.element.classList.add('product-highlight');
+              setTimeout(() => {
+                product.element.classList.remove('product-highlight');
+              }, 2000);
+              
+              // Clear search
+              searchInput.value = '';
+              searchResults.style.display = 'none';
+            });
+            
+            searchResults.appendChild(resultItem);
+          });
+        } else {
+          const noResults = document.createElement('div');
+          noResults.className = 'no-results';
+          noResults.textContent = 'No products found matching your search.';
+          searchResults.appendChild(noResults);
+        }
+        
+        searchResults.style.display = 'block';
+      }
+      
+      // Event listeners for search
+      searchInput.addEventListener('input', performSearch);
+      searchButton.addEventListener('click', performSearch);
+      
+      // Close search results when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.search-form')) {
+          searchResults.style.display = 'none';
+        }
+      });
+      
+      // Handle Enter key in search input
+      searchInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          performSearch();
+        }
+      });
+    });
+
+    (function () {
+    'use strict'
+    
+    var form = document.getElementById('loginForm')
+    
+    // Listen for the form submission attempt
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        // If form is invalid, prevent default submission
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      
+      // Add 'was-validated' class to show validation feedback styles
+      form.classList.add('was-validated')
+    }, false)
+  })()
+
+  // Optional: Reset form/validation state when the modal is closed
+  var loginModal = document.getElementById('loginModal')
+  if (loginModal) {
+      loginModal.addEventListener('hidden.bs.modal', function (event) {
+        var form = document.getElementById('loginForm')
+        form.classList.remove('was-validated') 
+        form.reset() // Clear the input fields
+      })
+  }
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Include Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+</head>
+<style>
+  /* body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+    } */
+
+  .navbar {
+    background: #fff !important;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-brand img {
+    height: 60px;
+    /* logo size increased */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-brand img:hover {
+    transform: scale(1.05);
+  }
+
+  .navbar-nav .nav-link {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #222 !important;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #c8a46a !important;
+  }
+
+  .icon-links a {
+    margin-left: 0.7rem;
+    font-size: 1.2rem;
+    padding: 6px 8px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    color: #222;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .icon-links a:hover {
+    background: #c8a46a;
+    color: #fff;
+    border-color: #c8a46a;
+  }
+   .navbar-nav .nav-link.active {
+  color: #c8a46a !important; /* brown color */
+}
+
+  * {
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #fff scroll-behavior smooth;
+    font-family: Cochin;
+  }
+
+  img {
+    display: flex;
+    width: 100%;
+  }
+
+  .header_continer {
+    display: grid;
+    overflow: hidden;
+  }
+
+  .header_img {
+    grid-area: 1/1/2/2;
+    position: relative;
+  }
+
+  .header_img img {
+    max-width: 100%;
+    height: 450px;
+    margin-left: auto;
+  }
+
+  .header_content>div {
+    max-width: 400px;
+    padding: 2.5rem 1rem;
+    background-color: rgb(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    margin-top: 40px;
+  }
+
+  .heroSection {
+    max-width: 100%;
+    margin: auto;
+    padding: 0rem 1rem;
+  }
+
+  .header_content {
+    /* grid-area: 1/1/2/2;
+    display: flex; */
+    align-items: center;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    left: 150px;
+    /* display: none; */
+    animation: Entrance 3s ease 0s 1 normal forwards;
+  }
+
+  @keyframes Entrance {
+    0% {
+      opacity: 0;
+      transform: translateX(-250px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .carousel-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    scroll-behavior: smooth;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 10px;
+  }
+
+  .box {
+    min-width: 150px;
+    height: 100px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .box:hover {
+    transform: scale(1.05);
+  }
+
+  .carousel-wrapper {
+    position: relative;
+  }
+
+  .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-box {
+    flex: 0 0 auto;
+    /* border: 2px solid black; */
+    width: 180px;
+    height: 120px;
+    margin-right: 10px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-left: 1rem;
+  }
+
+  .category-box:hover {
+    transform: scale(1.05);
+    background-color: #dcdcdc;
+  }
+
+  #section2 {
+    padding-left: 1rem;
+  }
+   /* Footer Styles */
+  .footer-section {
+      background: linear-gradient(135deg, #2c1e0f 0%, #3d2a16 100%);
+      color: white;
+      padding: 60px 0 0;
+  }
+  .footer-logo {
+      max-width: 180px;
+      margin-bottom: 20px;
+      filter: brightness(0) invert(1);
+  }
+  .footer-heading {
+      color: #c8a46a;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      font-weight: 600;
+      position: relative;
+  }
+  .footer-heading:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #c8a46a;
+  }
+  .footer-links {
+      list-style: none;
+      padding: 0;
+  }
+  .footer-links li {
+      margin-bottom: 12px;
+  }
+  .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+  }
+  .footer-links a:hover {
+      color: #c8a46a;
+      transform: translateX(5px);
+  }
+  .footer-links a i {
+      margin-right: 8px;
+      color: #c8a46a;
+  }
+  .contact-info-footer {
+      color: #ddd;
+  }
+  .contact-info-footer p {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+  }
+  .contact-info-footer i {
+      color: #c8a46a;
+      margin-right: 12px;
+      margin-top: 4px;
+      flex-shrink: 0;
+  }
+  .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+  }
+  .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(200, 164, 106, 0.1);
+      color: #c8a46a;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(200, 164, 106, 0.3);
+  }
+  .social-links a:hover {
+      background: #c8a46a;
+      color: #2c1e0f;
+      transform: translateY(-3px);
+  }
+  .newsletter-form {
+      display: flex;
+      margin-top: 20px;
+  }
+  .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: 1px solid rgba(200, 164, 106, 0.3);
+  }
+  .newsletter-form input::placeholder {
+      color: #aaa;
+  }
+  .newsletter-form button {
+      background: #c8a46a;
+      color: #2c1e0f;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 5px 5px 0;
+      font-weight: 600;
+      transition: all 0.3s ease;
+  }
+  .newsletter-form button:hover {
+      background: #b8945a;
+  }
+  .footer-bottom {
+      background: #1f150b;
+      padding: 25px 0;
+      margin-top: 50px;
+      border-top: 1px solid rgba(200, 164, 106, 0.2);
+  }
+  .footer-bottom p {
+      margin: 0;
+      color: #aaa;
+      text-align: center;
+  }
+  .payment-methods {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+  }
+  .payment-methods i {
+      font-size: 1.5rem;
+      color: #c8a46a;
+  }
+  .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #7d5332;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  .back-to-top:hover {
+      background: #634029;
+      transform: translateY(-3px);
+      color: white;
+  }
+
+
+
+  
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #6F4E37;
+            font-weight: 500;
+        }
+
+        /* MAIN GRID RESPONSIVE */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            margin-bottom: 0px;  /* ⭐ BIG GAP between both 3-card rows */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            row-gap: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .title {
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background: #6F4E37;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .details-btn {
+            background: #6F4E37;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 400px) {
+            .card img {
+                height: 150px;
+            }
+        }
+
+        
+  /* Search Bar Styles */
+  .search-form {
+      display: flex;
+      align-items: center;
+  }
+  .search-input {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      width: 200px;
+      transition: all 0.3s ease;
+  }
+  .search-input:focus {
+      outline: none;
+      border-color: #c8a46a;
+      box-shadow: 0 0 0 2px rgba(200, 164, 106, 0.2);
+      width: 250px;
+  }
+  .search-button {
+      background: #7d5332;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      margin-left: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+  .search-button:hover {
+      background: #634029;
+  }
+.highlight {
+  border: 3px solid red;
+  box-shadow: 0 0 15px rgba(255,0,0,0.7);
+}
+
+/* No result message */
+    #noResultMsg {
+      display: none;
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-card {
+        width: 100%;
+      }
+    }  
+  
+  /* Product Highlight */
+  .product-highlight {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 4px;
+      padding: 5px;
+      transition: all 0.3s ease;
+  }
+
+  .carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #7d5332;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+}
+
+#leftBtn {
+  left: 5px;   /* left side par button */
+  border-radius: 50%;
+}
+
+.carousel-btn:hover {
+  background-color: #5a3c24;
+}
+
+
+        
+</style>
+
+<body>
+  <!-- ✅ Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="RC logo - Copy.png" alt="RichField Chairs Logo" style="margin-left: 25px;">
+      </a>
+
+      <!-- Toggle Button for Mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav mb-2 mb-lg-0" style="font-family: sans-serif;">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="Brand.html">Brand</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="Product.html">Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="FAQs.html">Faq's</a></li>
+          <li class="nav-item"><a class="nav-link" href="review.html">Reviews</a></li>
+        </ul>
+      </div>
+
+      <!-- Right Side Icons with Search Bar -->
+      <div class="icon-links d-none d-lg-flex">
+        <!-- Search Form -->
+        <div class="search-form position-relative">
+          <input type="text" class="search-input" placeholder="Search products..." id="navbarSearch">
+          <div id="noResultMsg" style="display:none; color:red; text-align:center;">Sorry, product don't have</div>
+          <button class="search-button" id="searchButton">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+          <!-- Product cards container -->
+  <div class="product-container" id="productContainer"></div>
+  <a href="#loginModal"><i class="bi bi-person"  data-bs-toggle="modal" data-bs-target="#loginModal"></i></a>
+ <a href="cart.html">
+  🛒
+</a>
+
+</div>
+
+    </div>
+  </nav>
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Secure Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" class="needs-validation" novalidate>
+                    
+                    <div class="mb-3">
+                        <label for="validationCustomEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="validationCustomEmail" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="validationCustomPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="validationCustomPassword" required minlength="6">
+                        <div class="invalid-feedback">
+                            Please enter your password (minimum 6 characters).
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success w-100">Log In</button>
+
+                    <hr>
+                    <p class="text-center"><small>
+                        Don't have an account? <a href="#">Sign Up</a>
+                    </small></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Hero section -->
+
+  <section class="heroSection header_container" id="home">
+    <div class="header_img" id="image">
+      <img src="https://cdn.pixabay.com/photo/2024/08/01/06/22/ai-generated-8936264_640.jpg" alt="">
+    </div>
+    <div class="header_content">
+      <div>
+        <h1 style="color: black;font-weight: 600;">Chairs That Make a Statement.</h1>
+        <p style="font-size: large;color: black;">Discover chairs that blend comfort, style, and durability. Perfect for
+          home, office, or any space. Crafted with care and designed to last, our collection brings elegance to everyday
+          living.</p>
+        <button
+           data-bs-toggle="modal" data-bs-target="#loginModal" style="width: 90px; height: 40px;background-color: #7d5332; border: none;border-radius: 4px; margin-left: 38%;color: white;">Shop
+          Now</button>
+      </div>
+    </div>
+  </section>
+  <section id="section2">
+
+    <!-- category section -->
+    <p style="text-align: center; color: #7d5332; font-size: large; margin-top: 10px;margin-bottom: 2px;">___Best
+      Items___</p>
+    <h2 style="text-align: center; font-weight: bold;margin-bottom:2px;">TOP CATEGORY</h2>
+
+    <div class="carousel-wrapper">
+      <button id="leftBtn" class="carousel-btn">‹</button>
+  
+      <div class="carousel-container" id="carousel">
+       <a href="C-office.html"  style="text-decoration: none;"> <div class="category-box"
+          style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeeBPOEyM8cWOoqVFEvPhao9jOW7903DboTg&s); background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <div>Office chairs</div>
+        </div></a>
+
+       <a href="C-gaming.html"  style="text-decoration: none;"><div class="category-box"
+          style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-3IUDPe44TxUIJvyYJGjeZHqBmQYxScvjwA&s); background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <div>Gaming chairs</div>
+        </div></a> 
+
+      <a href="C-dining.html" style="text-decoration: none;"><div class="category-box"
+          style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNPzjeJGA0WXADgdJN-1DbhRegRD73EUj5Uw&s); background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <div>Dining chairs</div>
+        </div></a>  
+
+       <a href="C-lounge.html" style="text-decoration: none;"><div class="category-box"
+          style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaLsypUetUzIxSAYAddu0u19PkLFCIbNoQmQ&s); background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <div>Lounge chairs</div>
+        </div></a> 
+
+        <a href="C-outdoor.html" style="text-decoration: none;"><div class="category-box"
+          style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbRZU1a1uJ5VYb3qg6EtnukQ8whQTDSl_wQg&s); background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <div>Outdoor chairs</div>
+        </div></a>
+
+        <a href="C-kids.html" style="text-decoration: none;"><div class="category-box"
+          style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-AfaxPqTWI4S5l2ixM4u9tMj8Ivs6Kw76uw&s); background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <div>Kids chairs</div>
+        </div></a>
+
+        <a href="C-luxary.html" style="text-decoration: none;"><div class="category-box"
+          style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRniRaxIAm73-LHHubXXQ3PERrINuTxYl7GVg&s); background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <div>Luxary chairs</div>
+        </div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <p style="text-align: center; color: #7d5332; font-size: large;  margin-top: 20px;margin-bottom: 2px" id="products">
+    ___Latest Items___</p>
+  <h2 style="text-align: center; margin-top: 2px;margin-bottom:20px; font-weight: bold;"> TRENDY PRODUCTS</h2>
+<!-- FIRST ROW OF 3 CARDS -->
+    <div class="container" style="margin-bottom: 30px; margin-top: 30px;">
+
+      <!-- CARD 1 -->
+  <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <img src="https://media.istockphoto.com/id/181880817/photo/garden-furniture.jpg?s=612x612&w=0&k=20&c=BE_rYK2cY3pyUoAKvQV7BIHIL44JB9FmhYnwcw3hFmA=" alt="">
+    <h4 class="title">BreezeNest Outdoor Chair</h4>
+    <p><strong>Price:</strong> ₨ 5,700</p>
+    <p>Lightweight, foldable, easy to carry.</p>
+    <div>
+      <button class="btn" onclick="addToCart('BreezeNest Outdoor Chair' , 5700)">Add to Cart</button>
+      <a href="files/chair1.docx" class="details-btn">Details</a>
+    </div>
+  </div>
+
+
+        <!-- CARD 2 -->
+
+          <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/1127104617/photo/white-sunbeds-in-a-row-near-the-pool-with-umbrella-on-the-lawn.jpg?s=612x612&w=0&k=20&c=OAGGzUGOfM27k8XCepCEsJEsHaZlz_YMdUBnAUsn8Qc=" alt="">
+       <h4 class="title">AquaEdge Garden Chair</h4>
+            <p><strong>Price:</strong> ₨ 5,899</p>
+            <p>Water‑resistant. Durable build.</p>
+            <div>
+               <button class="btn" onclick="addToCart('AquaEdge Garden Chair' , 5899)">Add to Cart</button>
+                 <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+        
+        <!-- card 3 -->
+            <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/611773678/photo/chair-in-sunlight-in-front-yard.jpg?s=612x612&w=0&k=20&c=Zcg14iZOgtEFprulEji7Z0UIignJ671dtp9gnH5osuQ=" alt="">
+       <h4 class="title">SunHaven Lounge Chair</h4>
+            <p><strong>Price:</strong> ₨ 8,699</p>
+            <p>UV‑protected. Relaxed design.</p>
+            <div>
+               <button class="btn" onclick="addToCart('SunHaven Lounge Chair' , 8699)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+ </div>
+
+ <!-- SECOND ROW -->
+  <div class="container">
+    <!-- Card 4 -->
+<div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/174653923/photo/country-club-iron-table-and-chairs.jpg?s=612x612&w=0&k=20&c=UruumaqzCtJOsGhv83VqRim0rdnys1iPZ3efPLL3vjs=" alt="">
+       <h4 class="title">RusticAura Outdoor Chair</h4>
+            <p><strong>Price:</strong> ₨ 5,999</p>
+            <p>Rustic charm. Woven seat.</p>
+            <div>
+               <button class="btn" onclick="addToCart('RusticAura Outdoor Chair' , 5999)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+            <!-- Card 5 -->
+ <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/1371704348/photo/empty-modern-white-rattan-furniture-outdoor-garden-weave-chair-and-round-side-table-on-the.jpg?s=612x612&w=0&k=20&c=LwJb8BLV2RnadQ6RsD_Whx45-RrrfwuFpnx-WWLSbEY=" alt="">
+       <h4 class="title">MetroShade Balcony Chair</h4>
+            <p><strong>Price:</strong> ₨ 6,799</p>
+            <p>Modern style. Shade‑friendly.</p>
+            <div>
+               <button class="btn" onclick="addToCart('MetroShade Balcony Chair' , 6799)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+            <!-- card 6 -->
+ <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/467378728/photo/at-the-lake.jpg?s=612x612&w=0&k=20&c=9WuE7TbeBG5zcpOc02EZD7r0ZChiJkpD7nP4dyCdl3Q=" alt="">
+       <h4 class="title">EternaCasa Horizon Outdoor Lounge Chair</h4>
+            <p><strong>Price:</strong> ₨ 7,499</p>
+            <p>Durable weatherproof design.</p>
+            <div>
+               <button class="btn" onclick="addToCart('EternaCasa Horizon Outdoor Lounge Chair' , 7499)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+</div>
+
+
+
+   <!-- FIRST ROW OF 3 CARDS -->
+    <div class="container" style="margin-bottom: 30px; margin-top: 30px;">
+
+      <!-- CARD 1 -->
+    <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://m.media-amazon.com/images/I/91MsxiRNB2L._AC_UF480,480_SR480,480_.jpg" alt="">
+       <h4 class="title">Lightweight Plastic Kids Chair</h4>
+            <p><strong>Price:</strong> ₨ 5,000</p>
+            <p>Colorful,durable,& easy to clean.</p>
+            <div>
+               <button class="btn" onclick="addToCart('Lightweight Plastic Kids Chair' , 5000)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+        <!-- CARD 2 -->
+
+          <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://images.thdstatic.com/productImages/f8f842f4-79c6-4677-b2db-293e287811e7/svn/pink-costway-kids-chairs-ju-10n192pk-64_1000.jpg" alt="">
+       <h4 class="title">Ergonomic Kids Study Chair</h4>
+            <p><strong>Price:</strong> ₨ 4,599</p>
+            <p>Designed for posture support.</p>
+            <div>
+               <button class="btn" onclick="addToCart('Ergonomic Kids Study Chair' , 4599)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+        
+        <!-- card 3 -->
+            <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/1421461344/photo/mockup-frame-in-the-childrens-room-with-gray-armchair-on-wall-white-background.jpg?s=612x612&w=0&k=20&c=kc_CWNxLGXq2-JwR9kRLbWFEmiGyHfQs8rtCL7dC6Kg=" alt="">
+       <h4 class="title">Cartoon Character Themed Kids Chair</h4>
+            <p><strong>Price:</strong> ₨ 7,499</p>
+            <p>Fun designs featuring characters.</p>
+            <div>
+               <button class="btn" onclick="addToCart('Cartoon Character Themed Kids Chair' , 7499)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+ </div>
+
+ <!-- SECOND ROW -->
+  <div class="container">
+    <!-- Card 4 -->
+<div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/1441844004/photo/3d-rendering-illustration-of-a-modern-minimalist-kids-room-with-a-piggy-chair-copy-space.jpg?s=612x612&w=0&k=20&c=SopJwuFKAw3rlLonYom6WxBZv0jouEWEozX_wyDQ1s0=" alt="">
+       <h4 class="title">Convertible Foldable Sofa Chair for Kids</h4>
+            <p><strong>Price:</strong> ₨ 8,800</p>
+            <p>Multi-purpose chair.</p>
+            <div>
+               <button class="btn" onclick="addToCart('Convertible Foldable Sofa Chair for Kids' , 8800)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+            <!-- Card 5 -->
+ <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/521015628/photo/modern-chairs-on-white-background.jpg?s=612x612&w=0&k=20&c=qzHVkfLoWGJH92Whourn-v7bKKDdB7iBO7YDDCJXmds=" alt="">
+       <h4 class="title">Soft Foam Cube Kids Chair</h4>
+            <p><strong>Price:</strong> ₨ 9,489</p>
+            <p>Cushioned seating for children.</p>
+            <div>
+               <button class="btn" onclick="addToCart('Soft Foam Cube Kids Chair' , 9489)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+            <!-- card 6 -->
+ <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/501702102/photo/shelving-unit-and-new-sit.jpg?s=612x612&w=0&k=20&c=vQ2mEKrb_N790XX_2j9wMwKI9KIouurdN2ADnPfb6WE=" alt="">
+       <h4 class="title">Comfortable Bean Chair for Kids</h4>
+            <p><strong>Price:</strong> ₨ 7,400</p>
+            <p>Cozy, flexible seating.</p>
+            <div>
+               <button class="btn" onclick="addToCart('Comfortable Bean Chair for Kids' , 7400)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+</div>
+ <!-- FIRST ROW OF 3 CARDS -->
+    <div class="container" style="margin-bottom: 30px;">
+
+      <!-- CARD 1 -->
+    <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://images.unsplash.com/photo-1748721566880-9e8636f3e5c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fEVyZ29ub21pYyUyME9mZmljZSUyMENoYWlyJTIwaW1nfGVufDB8fDB8fHww " alt="">
+       <h4 class="title">Ergonomic Office Chair</h4>
+            <p><strong>Price:</strong> ₨ 9,000</p>
+            <p>Highly adjustable design.</p>
+            <div>
+                <button class="btn" onclick="addToCart('Ergonomic Office Chair', 9000)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+        <!-- CARD 2 -->
+
+          <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <img src="https://m.media-amazon.com/images/I/71bgrbF0m7L._AC_UL480_FMwebp_QL65_.jpg" alt="">
+       <h4 class="title">LuxeForm Executive Chair</h4>
+            <p><strong>Price:</strong> ₨ 10,000</p>
+            <p>Premium leather comfort & style.</p>
+            <div>
+               <button class="btn" onclick="addToCart('LuxeForm Executive Chair', 10000)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+        
+        <!-- card 3 -->
+            <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://media.istockphoto.com/id/1906733172/photo/corporate-business-office.jpg?s=612x612&w=0&k=20&c=jSXti_9OrAbcLEpIRemOZimM-j7sRUk5yrgEwkMwXzc=" alt="">
+       <h4 class="title">AeroEdge Comfort Chair</h4>
+            <p><strong>Price:</strong> ₨ 12,000</p>
+            <p>Designed for comfort and support.</p>
+            <div>
+                <button class="btn" onclick="addToCart('AeroEdge Comfort Chair', 12000)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+ </div>
+
+ <!-- SECOND ROW -->
+  <div class="container">
+    <!-- Card 4 -->
+<div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://m.media-amazon.com/images/S/al-na-9d5791cf-3faf/d45e02c5-0490-47c6-b28e-098b55f6295a._CR67,0,2866,1500_SX920_CB1169409_QL70_.png" alt="">
+       <h4 class="title">VertexPro Leather Chair</h4>
+            <p><strong>Price:</strong> ₨ 9,799</p>
+            <p>Refined seating & smooth texture.</p> 
+            <div>
+               <button class="btn" onclick="addToCart('VertexPro Leather Chai', 9700)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+            <!-- Card 5 -->
+ <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://m.media-amazon.com/images/S/al-na-9d5791cf-3faf/5eeb1978-e7ab-475e-a169-478212fafdf8._CR33,0,1433,750_SX920_CB1169409_QL70_.jpg" alt="">
+       <h4 class="title">ErgoMax Elite Office Chair</h4>
+            <p><strong>Price:</strong> ₨ 8,600</p>
+            <p>Cushioned seat with ergonomic fit.</p>
+            <div>
+                <button class="btn" onclick="addToCart('ErgoMax Elite Office Chair', 86000)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+            <!-- card 6 -->
+ <div class="card" style="height: 420px; max-width: 280px; width: 90%; margin: 0 auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://m.media-amazon.com/images/I/71stsMChwvL._AC_UL480_FMwebp_QL65_.jpg" alt="">
+       <h4 class="title">OptiPosture Office Chair</h4>
+            <p><strong>Price:</strong> ₨ 7,899</p>
+            <p>Adjustable cushioned support.</p>
+            <div>
+                <button class="btn" onclick="addToCart('OptiPosture Office Chair' , 7899)">Add to Cart</button>
+                <a href="files/chair1.docx" class="details-btn">Details</a>
+            </div>
+            </div>
+
+</div>
+
+
+
+ <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row">
+        <!-- Company Info -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <img src="/RC_logo_copy_2-removebg-preview.png" alt="RichField Chairs" class="footer-logo">
+          <p class="contact-info-footer">
+            Crafting comfort and style since 2010. RichField Chairs brings you premium seating solutions for home, office, and commercial spaces.
+          </p>
+          <div class="contact-info-footer">
+            <p>
+              <i class="bi bi-geo-alt"></i>
+              <span>ST-21, Block A, North Nazimabad, Karachi, Pakistan</span>
+            </p>
+            <p>
+              <i class="bi bi-telephone"></i>
+              <span>+92 21 36620000</span>
+            </p>
+            <p>
+              <i class="bi bi-envelope"></i>
+              <span>info@richfieldchairs.com</span>
+            </p>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.twitter.com/"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.linkedin.com/"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.youtube.com/"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+            <li><a href="About.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+            <li><a href="Product.html"><i class="bi bi-chevron-right"></i> Products</a></li>
+            <li><a href="Contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+            <li><a href="FAQs.html"><i class="bi bi-chevron-right"></i> FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Products -->
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h4 class="footer-heading">Products</h4>
+          <ul class="footer-links">
+            <li><a href="C-office.html"><i class="bi bi-chevron-right"></i> Office Chairs</a></li>
+            <li><a href="C-luxary.html"><i class="bi bi-chevron-right"></i> Luxary Chairs</a></li>
+            <li><a href="C-gaming.html"><i class="bi bi-chevron-right"></i> Gaming Chairs</a></li>
+            <li><a href="C-dining.html"><i class="bi bi-chevron-right"></i> Dining Chairs</a></li>
+            <li><a href="C-lounge.html"><i class="bi bi-chevron-right"></i> Lounge Chairs</a></li>
+            <li><a href="C-outdoor.html"><i class="bi bi-chevron-right"></i> Outdoor Chairs</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p class="contact-info-footer">
+            Subscribe to our newsletter to get updates on new products and exclusive offers.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="bi bi-send"></i></button>
+          </form>
+          <div class="payment-methods mt-4">
+            <i class="bi bi-credit-card" title="Credit Cards"></i>
+            <i class="bi bi-paypal" title="PayPal"></i>
+            <i class="bi bi-currency-dollar" title="Cash on Delivery"></i>
+            <i class="bi bi-bank" title="Bank Transfer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p>&copy; 2024 RichField Chairs. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <p>Crafted for Excellence in Comfort</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+  
+ function addToCart(name, price) {
+    // cart ko localStorage se read karo
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // check karo product already hai ya nahi
+    let item = cart.find(p => p.name === name);
+    if(item) {
+      item.quantity++;
+    } else {
+      cart.push({name, price, quantity: 1});
+    }
+
+    // localStorage update karo
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(name + " added to cart!");
+    // optional: cart page par redirect
+    // window.location.href = "cart.html";
+  }
+
+
+    // Add to cart alert
+    function addToCart(name) {
+      alert(name + " added to cart!");
+    }
+
+    // Add hover + move animation for all cards
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.onmouseover = () => {
+        card.style.transform = "scale(1.05) translateY(-10px)";
+        card.style.boxShadow = "0 10px 20px rgba(0,0,0,0.2)";
+      };
+      card.onmouseout = () => {
+        card.style.transform = "scale(1) translateY(0)";
+        card.style.boxShadow = "none";
+      };
+    });
+
+    // navbar js
+
+  document.addEventListener("DOMContentLoaded", function() {
+    let currentPath = window.location.pathname;
+    document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+      if(link.getAttribute("href") === currentPath){
+        link.classList.add("active");
+      }
+    });
+  });
+   document.addEventListener("DOMContentLoaded", function() {
+    const searchToggle = document.getElementById("searchToggle");
+    const searchBox = document.getElementById("searchBox");
+
+    searchToggle.addEventListener("click", function() {
+      searchBox.classList.toggle("d-none");
+      if (!searchBox.classList.contains("d-none")) {
+        searchBox.focus();
+      }
+    });
+  });
+  (function () {
+    'use strict'
+    
+    var form = document.getElementById('loginForm')
+    
+    // Listen for the form submission attempt
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        // If form is invalid, prevent default submission
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      
+      // Add 'was-validated' class to show validation feedback styles
+      form.classList.add('was-validated')
+    }, false)
+  })()
+
+  // Optional: Reset form/validation state when the modal is closed
+  var loginModal = document.getElementById('loginModal')
+  if (loginModal) {
+      loginModal.addEventListener('hidden.bs.modal', function (event) {
+        var form = document.getElementById('loginForm')
+        form.classList.remove('was-validated') 
+        form.reset() // Clear the input fields
+      })
+  }
+   // Back to top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.style.display = 'flex';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+
+        // Search Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput');
+      const searchButton = document.getElementById('searchButton');
+      const searchResults = document.getElementById('searchResults');
+      const productCards = document.querySelectorAll('.product-card');
+      
+      // Product data for search
+      const products = Array.from(productCards).map(card => ({
+        name: card.getAttribute('data-name'),
+        description: card.getAttribute('data-description'),
+        element: card
+      }));
+      
+      // Function to perform search
+      function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+        
+        if (searchTerm === '') {
+          searchResults.style.display = 'none';
+          return;
+        }
+        
+        // Filter products based on search term
+        const filteredProducts = products.filter(product => 
+          product.name.toLowerCase().includes(searchTerm) || 
+          product.description.toLowerCase().includes(searchTerm)
+        );
+        
+        // Display results
+        if (filteredProducts.length > 0) {
+          filteredProducts.forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            resultItem.innerHTML = `
+              <strong>${product.name}</strong>
+              <p class="mb-0" style="font-size: 0.8rem;">${product.description}</p>
+            `;
+            
+            resultItem.addEventListener('click', function() {
+              // Scroll to the product
+              product.element.scrollIntoView({ behavior: 'smooth' });
+              
+              // Highlight the product
+              product.element.classList.add('product-highlight');
+              setTimeout(() => {
+                product.element.classList.remove('product-highlight');
+              }, 2000);
+              
+              // Clear search
+              searchInput.value = '';
+              searchResults.style.display = 'none';
+            });
+            
+            searchResults.appendChild(resultItem);
+          });
+        } else {
+          const noResults = document.createElement('div');
+          noResults.className = 'no-results';
+          noResults.textContent = 'No products found matching your search.';
+          searchResults.appendChild(noResults);
+        }
+        
+        searchResults.style.display = 'block';
+      }
+      
+      // Event listeners for search
+      searchInput.addEventListener('input', performSearch);
+      searchButton.addEventListener('click', performSearch);
+      
+      // Close search results when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.search-form')) {
+          searchResults.style.display = 'none';
+        }
+      });
+      
+      // Handle Enter key in search input
+      searchInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          performSearch();
+        }
+      });
+    });
+
+    const carousel = document.getElementById("carousel");
+const leftBtn = document.getElementById("leftBtn");
+
+leftBtn.addEventListener("click", () => {
+  carousel.scrollBy({ left: 300, behavior: "smooth" }); 
+});
+
+
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let item = cart.find(p => p.name === name);
+    if(item) {
+      item.quantity++;
+    } else {
+      cart.push({name, price, quantity: 1});
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+  }
+
+ $("#navbarSearch").on("keyup", function () {
+  let text = $(this).val().toLowerCase();
+  let found = false;
+
+  // reset all cards
+  $(".card").removeClass("highlight").show();
+
+  // agar search box empty hai → sab cards wapas show
+  if (text === "") {
+    $(".card").show();          // show all cards again
+    $("#noResultMsg").hide();   // hide message
+    return;
+  }
+
+  $(".card").each(function () {
+    let name = $(this).find(".title").text().toLowerCase();
+    if (name.includes(text)) {
+      $(this).addClass("highlight"); // highlight match
+      found = true;
+    } else {
+      $(this).hide(); // hide non-matching
+    }
+  });
+
+  if (!found) {
+    $("#noResultMsg").show();
+  } else {
+    $("#noResultMsg").hide();
+  }
+});
+
+  </script>
+
+</body>
+
+</html>
